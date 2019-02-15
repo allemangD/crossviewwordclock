@@ -1,0 +1,34 @@
+body {
+    font-family: monospace;
+    font-size: 2em;
+    letter-spacing: .5em;
+}
+
+.block {
+    display: inline-block;
+    margin: 0 3em;
+}
+
+#wrapper {
+    width: fit-content;
+    height: fit-content;
+    margin: 5em auto;
+}
+
+#left .shift {
+    margin: 0 .15em 0 -.15em;
+    text-shadow: .2em .1em .6em #00000044;
+}
+
+#right .shift {
+    margin: 0 -.15em 0 .15em;
+    text-shadow: -.2em .1em .6em #00000044;
+}
+
+.block * {
+    -webkit-transition: margin 1s, text-shadow 1s;
+    transition: margin 1s, text-shadow 1s;
+
+    text-shadow: 0 0 .3em #00000044;
+    margin: 0 0;
+}

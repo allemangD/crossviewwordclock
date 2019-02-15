@@ -4,48 +4,9 @@
     <meta charset="UTF-8">
     <title>Cross-View Clock</title>
 
-    <style>
-        body {
-            font-family: monospace;
-            font-size: 2em;
-            letter-spacing: .5em;
-        }
-
-        .block {
-            display: inline-block;
-            border: 1px solid black;
-            padding: 6px 5px 7px 9px;
-            margin: 0 3em;
-        }
-
-        #wrapper {
-            width: fit-content;
-            height: fit-content;
-            margin: 5em auto;
-        }
-
-        #left .shift {
-            margin: 0 2px 0 -2px;
-            text-shadow: 2px 1px 6px #00000044;
-        }
-
-        #right .shift {
-            margin: 0 -2px 0 2px;
-            text-shadow: -2px 1px 6px #00000044;
-        }
-
-        .block * {
-            -webkit-transition: margin 1s, text-shadow 1s;
-            transition: margin 1s, text-shadow 1s;
-
-            text-shadow: 0 0 3px #00000044;
-            margin: 0 0;
-        }
-    </style>
-
+    <link rel="stylesheet" href="style.css">
 </head>
 <body onload="init()">
-
 <div id="wrapper">
     <div id="left" class="block"></div>
     <div id="right" class="block"></div>
@@ -56,6 +17,5 @@
         crossorigin="anonymous"></script>
 
 <script src="clock.js"></script>
-
 </body>
 </html>
