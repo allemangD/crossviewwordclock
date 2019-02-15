@@ -7,7 +7,8 @@
     <style>
         body {
             font-family: monospace;
-            letter-spacing: 5px;
+            font-size: 2em;
+            letter-spacing: .5em;
         }
 
         .block {
@@ -18,7 +19,9 @@
         }
 
         #wrapper {
-            margin: auto;
+            width: fit-content;
+            height: fit-content;
+            margin: 5em auto;
         }
 
         #left .shift {
@@ -44,7 +47,6 @@
 <body onload="init()">
 
 <div id="wrapper">
-    <!--todo move these to css-->
     <div id="left" class="block"></div>
     <div id="right" class="block"></div>
 </div>
