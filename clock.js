@@ -56,7 +56,7 @@ function update() {
 
     let now = new Date();
     let sec = now.getSeconds();
-    let mins = now.getMinutes();
+    let min = now.getMinutes();
     let hour = now.getHours();
 
     let words = {
@@ -92,33 +92,32 @@ function update() {
         'CLOCK': $$(7, 3),
     };
 
-    let OF = 'PAST';
-    let five = Math.floor((mins + sec / 60) / 5 + .5);
-    if (five > 6) {
-        five = 12 - five;
-        hour += 1;
-        if (hour === 0) hour = 12;
-        OF = 'TILL';
-    }
+    let five = Math.floor((min + sec / 60) / 5 + .5);
+    if (five > 6) hour += 1;
+    five %= 12;
     hour %= 12;
 
     let HOUR = [
-        'TWELVE', 'ONE', 'TWO', 'THREE', 'FOUR', 'FIVE2', 'SIX', 'SEVEN', 'EIGHT', 'NINE', 'TEN2', 'ELEVEN'
+        'TWELVE', 'ONE', 'TWO', 'THREE', 'FOUR', 'FIVE2',
+        'SIX', 'SEVEN', 'EIGHT', 'NINE', 'TEN2', 'ELEVEN'
     ][hour];
 
     let choices = {
         0: ['ITS', HOUR, 'O', 'CLOCK'],
-        1: ['ITS', 'FIVE1', OF, HOUR],
-        2: ['ITS', 'TEN1', OF, HOUR],
-        3: ['ITS', 'A', 'QUARTER', OF, HOUR],
-        4: ['ITS', 'TWENTY', OF, HOUR],
-        5: ['ITS', 'TWENTY', 'FIVE1', OF, HOUR],
-        6: ['ITS', 'HALF', OF, HOUR]
+        1: ['ITS', 'FIVE1', 'PAST', HOUR],
+        2: ['ITS', 'TEN1', 'PAST', HOUR],
+        3: ['ITS', 'A', 'QUARTER', 'PAST', HOUR],
+        4: ['ITS', 'TWENTY', 'PAST', HOUR],
+        5: ['ITS', 'TWENTY', 'FIVE1', 'PAST', HOUR],
+        6: ['ITS', 'HALF', 'PAST', HOUR],
+        7: ['ITS', 'TWENTY', 'FIVE1', 'TILL', HOUR],
+        8: ['ITS', 'TWENTY', 'TILL', HOUR],
+        9: ['ITS', 'A', 'QUARTER', 'TILL', HOUR],
+        10: ['ITS', 'TEN1', 'TILL', HOUR],
+        11: ['ITS', 'FIVE1', 'TILL', HOUR],
     };
 
-    for(let w in choices[five]){
-        words[choices[five][w]].addClass('shift');
-    }
+    choices[five].forEach(e => words[e].addClass('shift'));
 
     setTimeout(update, 10000);
 }
