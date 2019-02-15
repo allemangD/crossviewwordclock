@@ -134,15 +134,11 @@ function tags() {
         ["ESA", "O'CLOCK", "KNS"],
     ];
 
-    return grid.map((row, i) =>
-        $('<div>')
-            .addClass(`_${i}`)
-            .html(
-                row.map((n, j) =>
-                    $('<span>')
-                        .addClass(`_${j}`)
-                        .text(n))
-            ));
+    return grid.map((row, i) => $('<div>')
+        .addClass(`_${i}`)
+        .html(row.map((word, j) => $('<span>')
+            .addClass(`_${j}`)
+            .text(word))));
 }
 
 function init() {
