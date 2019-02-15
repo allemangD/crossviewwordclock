@@ -93,16 +93,14 @@ function update() {
     };
 
     let OF = 'PAST';
-    if (now.getMinutes() > 30) {
-        mins = 60 - mins;
+    let five = Math.floor((mins + sec / 60) / 5 + .5);
+    if (five > 6) {
+        five = 12 - five;
         hour += 1;
         if (hour === 0) hour = 12;
         OF = 'TILL';
     }
     hour %= 12;
-
-    let five = Math.floor((mins + sec / 60) / 5 + .5);
-    console.log(five);
 
     let HOUR = [
         'TWELVE', 'ONE', 'TWO', 'THREE', 'FOUR', 'FIVE2', 'SIX', 'SEVEN', 'EIGHT', 'NINE', 'TEN2', 'ELEVEN'
